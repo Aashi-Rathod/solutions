@@ -1,0 +1,73 @@
+1. Find the largest element in an array
+def find_largest(arr):
+    if not arr:
+        return None
+    largest = arr[0]
+    for num in arr[1:]:
+        if  num > largest:
+            largest = num
+    return largest
+print(find_largest([3,5,9,8,7]))
+☐  2. Find the second largest/smallest element (time :O(n) and space: O(1))
+    def second_largest(arr):
+    if len(arr) < 2:
+        return None
+    
+    largest = float('-inf')
+    second = float('-inf')
+    
+    for num in arr:
+        if num > largest:
+            second = largest
+            largest = num
+        
+        elif largest > num > second:
+            second = num
+    return second
+
+arr = [35,1,12,54,7]
+print(second_largest(arr))
+☐  3. Reverse an array in-place( two pointer)( time :O(n) and space: O(1))
+def reverse_array(arr):
+    left = 0
+    right = len(arr) - 1
+    
+    while left< right:
+        arr[left],arr[right] = arr[right],arr[left]
+        left += 1
+        right -= 1
+    return arr
+print(reverse_array([35,8,1,6,4,5]))
+☐  4. Check if an array is sorted ( time :O(n) and space: O(1))
+def is_sorted(arr):
+    for i in range(len(arr)-1):
+        if arr[i] > arr[i+1]:
+            return False
+    return True
+print(is_sorted([1,2,3,8]))
+☐  5. Find the sum/average of array elements ( time :O(n) and space: O(1))
+def find_sum(arr):
+
+    total = 0
+
+    for num in arr:
+        total += num
+
+    return total
+
+
+arr = [10, 20, 30, 40, 50]
+
+print("Sum =", find_sum(arr))
+------------------------------------------------------------------
+def find_average(arr):
+
+    if len(arr) == 0:
+        return 0
+
+    total = 0
+
+    for num in arr:
+        total += num
+
+    return total / len(arr)
