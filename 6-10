@@ -1,0 +1,91 @@
+☐  5. Find the sum/average of array elements(time:O(n) and space:O(1))
+def find_sum(arr):
+
+    total = 0
+
+    for num in arr:
+        total += num
+
+    return total
+
+
+arr = [10, 20, 30, 40, 50]
+
+print("Sum =", find_sum(arr))
+def find_average(arr):
+
+    if len(arr) == 0:
+        return 0
+
+    total = 0
+
+    for num in arr:
+        total += num
+
+    return total / len(arr)
+☐  6. Count even and odd elements(time:O(n) and space:O(1))
+def count_even_odd(arr):
+    even = 0
+    odd = 0
+    for num in arr:
+        if num % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+        
+    return even,odd
+print(count_even_odd([1,2,3,4,5,6,7,8,9]))
+☐  7. Move all zeros to the end of the array (time:O(n) and space:O(1))
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        j = 0
+
+        for i in range(len(nums)):
+            if nums[i]!= 0:
+                nums[j],nums[i] = nums[i],nums[j]
+                j +=1
+
+        return nums
+
+☐  8. Find duplicate elements in an array(time:O(n) and space:O(n))
+def find_duplicates(arr):
+    seen = set()
+    duplicates = set()
+    for num in arr:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+    return list(duplicates)
+print(find_duplicates([1,2,1,5,4,8,1]))
+
+☐  9. Remove duplicates from a sorted array (time:O(n) and space:O(1))
+def remove_duplicates(arr):
+
+if len(arr) == 0:
+return 0
+
+i = 0
+
+for j in range(1, len(arr)):
+
+if arr[j] != arr[i]:
+
+i += 1
+arr[i] = arr[j]
+
+return i + 1
+
+☐  10. Find the missing number in 1 to N(time:O(n) and space:O(1))
+def find_missing(arr, n):
+
+    expected_sum = n * (n + 1) // 2
+
+    actual_sum = sum(arr)
+
+    return expected_sum - actual_sum
+
+
+arr = [1,2,4,5]
+
+print(find_missing(arr,5))
