@@ -1,1 +1,53 @@
 
+
+☐  11. Find the single non-repeating(unique) number (XOR trick) (time:O(n) and space:O(1))
+def single_number(arr):
+
+    result = 0
+
+    for num in arr:
+        result ^= num
+
+    return result
+
+
+arr = [2,3,5,4,5,3,4]
+
+print(single_number(arr))
+
+☐  12. Find the union of two arrays(time:O(n+m) and space:O(n+m))
+def union_arrays(arr1, arr2):
+
+    union = set()
+
+    for num in arr1:
+        union.add(num)
+
+    for num in arr2:
+        union.add(num)
+
+    return list(union)
+
+
+arr1 = [1,2,3,4]
+arr2 = [3,4,5,6]
+
+print(union_arrays(arr1, arr2))
+
+☐  13. Find the intersection of two arrays(time:O(n+m) and space:O(n))
+def intersection_arrays(arr1, arr2):
+
+    set1 = set(arr1)
+    intersection = set()
+
+    for num in arr2:
+        if num in set1:
+            intersection.add(num)
+
+    return list(intersection)
+
+
+arr1 = [1, 2, 3, 4]
+arr2 = [3, 4, 5, 6]
+
+print(intersection_arrays(arr1, arr2))
