@@ -1,1 +1,105 @@
+☐  16. Find pairs in an array with a given sum (Two Sum) (time:O(n) and space:O(n))
+# hash set for unsorted array and two pointers for sorted array
+Hash set
+n = int(input())
+arr = list(map(int, input().split()))
+target = int(input())
+
+seen = set()
+found = False
+
+for num in arr:
+
+    complement = target - num
+
+    if complement in seen:
+        print(complement, num)
+        found = True
+        break
+
+    seen.add(num)
+
+if not found:
+    print("No Pair Found")
+------------------------------------------------------------------------------------------
+Two pointers
+left = 0
+right = n - 1
+
+while left < right:
+    current = arr[left] + arr[right]
+
+    if current == target:
+        print(arr[left], arr[right])
+        break
+    elif current < target:
+        left += 1
+    else:
+        right -= 1
+
+☐  17. Find the equilibrium index of an array(prefix sum) (time:O(n) and space:O(1))
+n = int(input())
+arr = list(map(int, input().split()))
+
+total_sum = sum(arr)
+left_sum = 0
+
+for i in range(n):
+
+    right_sum = total_sum - left_sum - arr[i]
+
+    if left_sum == right_sum:
+        print(i)
+        break      # don’t break if all eq. are asked
+
+    left_sum += arr[i]
+
+else:
+    print(-1)
+
+☐  18. Find leaders in an array (element greater than all to its right) (time:O(n) and space:O(n))
+n = int(input())
+arr = list(map(int, input().split()))
+
+leaders = []
+
+max_right = arr[-1]
+leaders.append(max_right)
+
+for i in range(n - 2, -1, -1):
+
+    if arr[i] >= max_right:
+        leaders.append(arr[i])
+        max_right = arr[i]
+
+leaders.reverse()
+
+print(*leaders)
+
+☐  19. Segregate 0s, 1s, and 2s in an array (Dutch National Flag) (time:O(n) and space:O(1))
+n = int(input())
+arr = list(map(int, input().split()))
+
+low = 0
+mid = 0
+high = n - 1
+
+while mid <= high:
+
+    if arr[mid] == 0:
+
+        arr[low], arr[mid] = arr[mid], arr[low]
+        low += 1
+        mid += 1
+
+    elif arr[mid] == 1:
+
+        mid += 1
+
+    else:
+
+        arr[mid], arr[high] = arr[high], arr[mid]
+        high -= 1
+
+print(*arr)
 
